@@ -3,7 +3,7 @@ import { Loginvalidation } from './LoginValidation';
 import './App.css';
 
 const initialValue = {
-  username: '',
+  email: '',
   password: ''
 }
 
@@ -20,10 +20,10 @@ function App() {
           {({setFieldValue,errors}) =>(
             <Form>
               <div className="form-input">
-                <label className='w-100 block'>Username</label>
-                <Field name='username' />
+                <label className='w-100 block'>Email</label>
+                <Field name='email' />
               </div>
-              <ErrorMessage component="div"  name="username" className='mt-1 text-sm text-rose-400'/>
+              <ErrorMessage component="div"  name="email" className='mt-1 text-sm text-rose-400'/>
 
               <div className="form-input mt-5">
                 <label className='w-100 block'>Password</label>
