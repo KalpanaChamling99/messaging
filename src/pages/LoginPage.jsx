@@ -4,16 +4,18 @@ import { ToastContainer,toast } from 'react-toastify';
 import { Loginvalidation } from './LoginValidation';
 
 const initialValue = {
-  email: '',
-  password: ''
+  username: '',
+  password: '',
+  country: ''
 }
 const loginApi = import.meta.env.VITE_LOGIN_KEY;
 
 function LoginPage() {
-  const submitHandler = async({values,resetForm}) =>{
+  const submitHandler = async(values,resetForm) =>{
     // const payload = {
-    //   email: values.email,
-    //   password: values.password
+    //   username: values.username,
+    //   password: values.password,
+    //   country: ''
     // }
     const payload = {
       username: 'kminchelle',
@@ -26,12 +28,10 @@ function LoginPage() {
           'Content-Type': 'application/json'
         }
       });
-      const token  =  response.data.token;
-      console.log('token',token);
-      
+     
       if( response.status == 200 ){
         toast.success('Login successfully!');
-        localStorage.setItem("token", response?.data?.token);
+        localStorage.setItem("token",response?.data?.token);
       }
     }catch{
       toast.error('Login failed !')
@@ -52,13 +52,13 @@ function LoginPage() {
             <Form>
               <div className="form-input">
                 <label className='w-100 block'>Email</label>
-                <Field name='email' />
+                <Field  name='username' />
               </div>
-              <ErrorMessage component="div"  name="email" className='mt-1 text-sm text-rose-400'/>
+              <ErrorMessage component="div"  name="username" className='mt-1 text-sm text-rose-400'/>
 
               <div className="form-input mt-5">
                 <label className='w-100 block'>Password</label>
-                <Field type='password' name='password' />
+                <Field type='password' name='password'  />
               </div>
               <ErrorMessage component='div' name='password' className='mt-1 text-sm text-rose-400'/>
               <div className="btn-section mt-4">
